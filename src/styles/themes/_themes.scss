@@ -1,0 +1,83 @@
+body.dark{
+    background-color: $DdarkBlueBg;
+}
+
+header.dark{
+    background-color: $DdarkBlueElm;
+    color: white;
+
+    button{
+        color: white;
+
+        i{
+            filter: brightness(0) invert(1);
+        }
+    }
+}
+
+main.dark{
+    background-color: $DdarkBlueBg;
+
+    .loading{
+        h1{ color: white; }
+    }
+
+    .filter{
+        .container{
+            form {
+                input {
+                    box-shadow: none;
+                    color: white;
+                    background-color: $DdarkBlueElm;
+                }
+
+                input::placeholder{ color: $DarkModeText; }
+            }
+
+            select{
+                box-shadow: none;
+                background-color: $DdarkBlueElm;
+                color: white;
+            }
+        }
+    }
+
+    section{
+        .country-list{
+            li{
+                box-shadow: none;
+                background-color: $DdarkBlueElm;
+
+                a{ color: white;}
+            }
+        }
+    }
+
+    .result-container{
+        button{
+            box-shadow: none;
+            background-color: $DdarkBlueElm;
+            color: white;
+
+            .arrow{
+                filter: brightness(0) invert(1);;
+            }
+        }
+
+        .container{
+            color: white;
+        }
+    }
+
+    .page-link{
+        color: white;
+    }
+
+    .page-link:hover{
+        background-color: white;
+        color: black;
+    }
+    .active{
+        background-color: $DdarkBlueElm;
+    }
+}

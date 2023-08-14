@@ -1,0 +1,40 @@
+.filter{
+    .container{
+        padding: 25px 15px 10px;
+
+        form{
+            margin-bottom: 40px;
+            
+            input{
+                padding: 18px 15px;
+                width: 100%;
+                border: none;
+                border-radius: 5px;
+                outline: transparent;
+                box-shadow: $LightShadow 0px 2px 8px 0px;
+            }
+
+            input::placeholder{
+                color: $LightGrayInput;
+                letter-spacing: 1px;
+            }
+        }
+
+        select{
+            width: min(300px, 50%);
+            padding: 18px 30px 18px 15px;
+            appearance: none;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            outline: transparent;
+            box-shadow: $LightShadow 0px 2px 8px 0px;
+            background: url('/arrowdown.png') center right 10px no-repeat;
+            background-size: 10px;
+
+            option{
+                font-weight: 600;
+            }
+        }
+    }
+}

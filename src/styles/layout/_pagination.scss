@@ -1,0 +1,39 @@
+.pagination {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.page-link {
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 3px 8px;
+    overflow: hidden;
+}
+
+.page-link:hover{
+    background-color: $LightGrayInput;
+    color: white;
+    transition: .2s;
+}
+
+/* pagination pageItem */
+.page-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+/* pagination page item when active */
+.active{
+    background-color: $DdarkBlueBg;
+    border-radius: 100%;
+    padding: 3px 1px;
+    color: white;
+}

@@ -1,0 +1,423 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200&display=swap");
+*, html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(0, 0%, 98%);
+}
+
+#__next {
+  color: hsl(200, 15%, 8%);
+  font-family: "Nunito Sans", sans-serif;
+  height: 100vh;
+}
+
+header nav {
+  padding: 25px 15px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 10px rgb(231, 231, 231);
+}
+header nav h1 {
+  font-size: 18px;
+  font-weight: 1000;
+}
+header nav button {
+  padding: 0px 5px;
+  font-weight: 700;
+  outline: transparent;
+  border: none;
+  background-color: transparent;
+  box-shadow: transparent 0px 2px 8px 0px;
+}
+header nav button i {
+  position: relative;
+  top: 2px;
+  right: 5px;
+}
+
+.filter .container {
+  padding: 25px 15px 10px;
+}
+.filter .container form {
+  margin-bottom: 40px;
+}
+.filter .container form input {
+  padding: 18px 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  outline: transparent;
+  box-shadow: rgb(231, 231, 231) 0px 2px 8px 0px;
+}
+.filter .container form input::-moz-placeholder {
+  color: hsl(0, 0%, 52%);
+  letter-spacing: 1px;
+}
+.filter .container form input::placeholder {
+  color: hsl(0, 0%, 52%);
+  letter-spacing: 1px;
+}
+.filter .container select {
+  width: min(300px, 50%);
+  padding: 18px 30px 18px 15px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  outline: transparent;
+  box-shadow: rgb(231, 231, 231) 0px 2px 8px 0px;
+  background: url("/arrowdown.png") center right 10px no-repeat;
+  background-size: 10px;
+}
+.filter .container select option {
+  font-weight: 600;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.page-link {
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 3px 8px;
+  overflow: hidden;
+}
+
+.page-link:hover {
+  background-color: hsl(0, 0%, 52%);
+  color: white;
+  transition: 0.2s;
+}
+
+/* pagination pageItem */
+.page-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* pagination page item when active */
+.active {
+  background-color: hsl(207, 26%, 17%);
+  border-radius: 100%;
+  padding: 3px 1px;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+section {
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+section .country-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 50px;
+  font-weight: normal;
+}
+section .country-list li {
+  border-radius: 10px;
+  width: min(90%, 300px);
+  overflow: hidden;
+  box-shadow: rgb(231, 231, 231) 0px 2px 8px 0px;
+  background-color: white;
+}
+section .country-list li a {
+  color: hsl(200, 15%, 8%);
+  text-decoration: none;
+  position: relative;
+}
+section .country-list li a figure {
+  position: relative;
+}
+section .country-list li a figure .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+section .country-list li a .desc {
+  padding: 30px 40px 50px;
+}
+section .country-list li a .desc h3 {
+  margin-bottom: 10px;
+}
+section .country-list li a .desc li {
+  font-size: 14px;
+  box-shadow: none;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.result-container {
+  padding: 50px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+.result-container button {
+  letter-spacing: 1px;
+  height: 35px;
+}
+.result-container button .arrow {
+  position: relative;
+  right: 2px;
+}
+.result-container .container figure {
+  position: relative;
+  margin-top: 55px;
+}
+.result-container .container figure .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.result-container .container .details h2 {
+  font-size: 22px;
+  margin-top: 40px;
+}
+.result-container .container .details div h3 {
+  font-size: 18px;
+  font-weight: 1000;
+  margin-bottom: 15px;
+}
+.result-container .container .details div button {
+  margin: 10px 5px;
+}
+.result-container .container .details div ul {
+  margin: 20px 0px 30px;
+  list-style-type: none;
+}
+.result-container .container .details div ul li {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.loading {
+  width: 100%;
+  height: 77vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  border: none;
+  outline: transparent;
+  background-color: white;
+  box-shadow: rgb(231, 231, 231) 0px 2px 8px 0px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .filter .container form input {
+    padding: 23px 25px;
+  }
+  .filter .container select {
+    padding: 20px 30px 20px;
+    background-position: center right 20px;
+  }
+  section {
+    display: flex;
+    justify-content: center;
+  }
+  section .country-list {
+    flex-flow: row wrap;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  section .country-list li {
+    width: 320px;
+  }
+  .pagination {
+    margin: 0 auto 10px;
+    justify-content: space-between;
+    width: 500px;
+  }
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 992px) {
+  header nav {
+    padding: 25px 60px;
+  }
+  .filter .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .filter .container form {
+    width: 50%;
+    margin-bottom: 0px;
+  }
+  .filter .container select {
+    padding: 20px 30px 20px;
+    height: 60px;
+  }
+  .result-container {
+    width: 90%;
+  }
+  .result-container .container {
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+  }
+  .result-container .container figure {
+    width: 60%;
+    margin-top: 0;
+  }
+  .result-container .container figure .image-wrapper {
+    height: 500px;
+  }
+  .result-container .container .details {
+    display: block;
+    width: 40%;
+    padding: 0px 50px;
+  }
+  .result-container .container .details h2 {
+    font-size: 26px;
+    font-weight: 1000;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .result-container {
+    width: 90%;
+  }
+  .result-container div:nth-child(1) {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .result-container .container {
+    width: 100%;
+  }
+  .result-container .container figure {
+    width: 50%;
+  }
+  .result-container .details {
+    width: 50%;
+    padding: 0px 10px;
+  }
+  .result-container .details div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+  }
+  .result-container .details div:nth-child(2) ul li {
+    margin: 20px 0;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .result-container {
+    width: 85%;
+  }
+  .result-container div:nth-child(1) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .result-container .container figure {
+    width: 40%;
+  }
+  .result-container .details {
+    width: 40%;
+  }
+  .result-container .details div:nth-child(2) ul li {
+    font-size: 16px;
+  }
+}
+body.dark {
+  background-color: hsl(207, 26%, 17%);
+}
+
+header.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+}
+header.dark button {
+  color: white;
+}
+header.dark button i {
+  filter: brightness(0) invert(1);
+}
+
+main.dark {
+  background-color: hsl(207, 26%, 17%);
+}
+main.dark .loading h1 {
+  color: white;
+}
+main.dark .filter .container form input {
+  box-shadow: none;
+  color: white;
+  background-color: hsl(209, 23%, 22%);
+}
+main.dark .filter .container form input::-moz-placeholder {
+  color: hsl(0, 0%, 100%);
+}
+main.dark .filter .container form input::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+main.dark .filter .container select {
+  box-shadow: none;
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+}
+main.dark section .country-list li {
+  box-shadow: none;
+  background-color: hsl(209, 23%, 22%);
+}
+main.dark section .country-list li a {
+  color: white;
+}
+main.dark .result-container button {
+  box-shadow: none;
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+}
+main.dark .result-container button .arrow {
+  filter: brightness(0) invert(1);
+}
+main.dark .result-container .container {
+  color: white;
+}
+main.dark .page-link {
+  color: white;
+}
+main.dark .page-link:hover {
+  background-color: white;
+  color: black;
+}
+main.dark .active {
+  background-color: hsl(209, 23%, 22%);
+}/*# sourceMappingURL=index.css.map */

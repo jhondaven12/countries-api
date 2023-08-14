@@ -1,0 +1,58 @@
+ul{
+    list-style-type: none;
+    margin: 0;
+}
+
+section {
+    margin: 0 auto;
+    padding: 30px 20px;
+
+    .country-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 50px;
+        font-weight: normal;
+    
+        li{
+            border-radius: 10px;
+            width: min(90%, 300px);
+            overflow: hidden;
+            box-shadow: $LightShadow 0px 2px 8px 0px;
+            background-color: white;
+            
+            a{  
+                color: $LdarkBlueText;
+                text-decoration: none;
+                position: relative;
+    
+                figure {
+                        position: relative;
+                
+                        .image-wrapper {
+                            position: relative;
+                            width: 100%;
+                            height: 200px;
+                            object-fit: cover;
+                            display: block;
+                        }
+                    }
+    
+                .desc{
+                    padding: 30px 40px 50px;
+    
+                    h3{
+                        margin-bottom: 10px;
+                    }
+    
+                    li{
+                        font-size: min(14px, 16px);
+                        box-shadow: none;
+                        font-weight: normal;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }    
+}
