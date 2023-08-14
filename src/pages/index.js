@@ -1,5 +1,4 @@
 import axios from "axios";
-import Header from "../../components/Header";
 import { useState, useEffect } from "react";
 import CountryList from "./country";
 import Filter from "../../components/filter";
@@ -20,9 +19,10 @@ function Home({ data }) {
     setSearchTerm(inputValue);
 
     // Filter countries based on searchTerm and current filter
-    const filteredCountries = data.filter(item =>
-      (item.name.toLowerCase().includes(inputValue.toLowerCase())) &&
-      (filter === '' || item.region === filter)
+    const filteredCountries = data.filter(
+      (item) =>
+        (item.name.toLowerCase().includes(inputValue.toLowerCase())) &&
+        (filter === '' || item.region === filter)
     );
     setCountries(filteredCountries);
   }
@@ -33,9 +33,12 @@ function Home({ data }) {
     setCurrentPage(0);
     
     // Filter countries based on current filter and searchTerm
-    const filteredCountries = data.filter(item =>
-      (event.target.value === 'DEFAULT' || item.region === event.target.value) &&
-      (searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const filteredCountries = data.filter(
+      (item) =>
+        (event.target.value === 'DEFAULT' ||
+          item.region === event.target.value) &&
+        (searchTerm === '' ||
+          item.name.toLowerCase().includes(searchTerm.toLowerCase()))
     );
     setCountries(filteredCountries);
   }
@@ -54,7 +57,7 @@ function Home({ data }) {
     }
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Simulate fetching data when data prop changes (replace with actual API call)
     setLoading(true);
     setTimeout(() => {
@@ -73,7 +76,29 @@ function Home({ data }) {
   // Reset pagination when data changes
   useEffect(() => {
     setCurrentPage(0);
-  }, [countries]);
+  }, [countries]);*/
+
+  useEffect(() => {
+    setLoading(true);
+    // Simulate API call to fetch data for the current page
+    // Adjust the actual API endpoint and parameters
+    axios
+      .get(`https://jhondaven12.github.io/entertaimentApi/countries.json`, {
+        params: {
+          page: currentPage + 1, // API pages are often 1-based
+          limit: itemPerPages,
+        },
+      })
+      .then((response) => {
+        setCountries(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, [currentPage]);
+
 
   return (
     <>
@@ -107,22 +132,21 @@ function Home({ data }) {
 
 export const getStaticProps = async () => {
   try {
-    const page = 1; // Spceify the current page
-    const limit = 20; // Specify the number of tiems per page
     const apiUrl ='https://jhondaven12.github.io/entertaimentApi/countries.json';
 
-    const response = await axios.get(`${apiUrl}?page=${page}&limit=${limit}`);
+    const response = await axios.get(apiUrl);
     const data = response.data;
+    const totalItems = data.length; // Total number of items
 
     return {
-      props: { data, },
+      props: { data, totalItems },
       revalidate: 60 * 60
     }
   } catch (error) {
     console.error(error);
 
     return {
-      props: { data: [] },
+      props: { data: [], totalItems: 0  },
       revalidate: 60 * 60,
     }
   }
