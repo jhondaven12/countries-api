@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Router from 'next/router';
 import Image from "next/image";
+import Head from 'next/head';
 
 export default function Country({ country, allCountries }) {
 
@@ -23,6 +24,10 @@ export default function Country({ country, allCountries }) {
 
     return (
         <>
+            <Head>
+                <title>Countries Api | {country.name}</title>
+                <meta property="Countries Api " content="Countries Api" key={country.name} />
+            </Head>
             <section className="result-container">
                 <div>
                     <button onClick={() => Router.push('/')}>
